@@ -1,0 +1,247 @@
+/* [project]/frontend/app/globals.css [app-client] (css) */
+:root {
+  --primary-color: #1a73e8;
+  --text-color: #3c4043;
+  --bg-color: #fff;
+  --border-color: #dadce0;
+  --hover-bg: #f1f3f4;
+  --today-bg: #e8f0fe;
+  --today-color: #1967d2;
+  --lunar-color: #70757a;
+  --weekend-color: #70757a;
+  --event-bg: #3f51b5;
+  --event-text: #fff;
+  --modal-bg: #fff;
+  --input-bg: #fff;
+  --input-border: #dadce0;
+}
+
+[data-theme="dark"] {
+  --primary-color: #8ab4f8;
+  --text-color: #e8eaed;
+  --bg-color: #202124;
+  --border-color: #5f6368;
+  --hover-bg: #303134;
+  --today-bg: #131314;
+  --today-color: #8ab4f8;
+  --lunar-color: #9aa0a6;
+  --weekend-color: #9aa0a6;
+  --event-bg: #8ab4f8;
+  --event-text: #202124;
+  --modal-bg: #2d2e30;
+  --input-bg: #202124;
+  --input-border: #5f6368;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+.main-container {
+  flex-direction: column;
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+}
+
+.calendar-header {
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0 20px;
+  display: flex;
+}
+
+.calendar-header__title h1 {
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.calendar-header__controls button {
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  color: var(--text-color);
+  background: none;
+  border-radius: 4px;
+  margin-left: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.calendar-header__controls button:hover {
+  background-color: var(--hover-bg);
+}
+
+.calendar-grid {
+  border-top: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  flex: 1;
+  grid-template-rows: auto repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-columns: repeat(7, 1fr);
+  display: grid;
+}
+
+.calendar-grid__header-cell {
+  text-align: center;
+  color: var(--weekend-color);
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  text-transform: uppercase;
+  padding: 10px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.day-cell {
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+  flex-direction: column;
+  min-height: 100px;
+  padding: 4px;
+  display: flex;
+  position: relative;
+}
+
+.day-cell:hover {
+  background-color: var(--hover-bg);
+}
+
+.day-cell--other-month {
+  background-color: var(--hover-bg);
+  color: #70757a;
+}
+
+.day-cell--today .day-cell__solar {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  display: flex;
+}
+
+.day-cell__header {
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 4px;
+  display: flex;
+}
+
+.day-cell__solar {
+  padding: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.day-cell__lunar {
+  color: var(--lunar-color);
+  padding: 4px;
+  font-size: 10px;
+}
+
+.day-cell--other-month .day-cell__lunar {
+  opacity: .5;
+}
+
+.day-cell__events {
+  flex-direction: column;
+  gap: 2px;
+  display: flex;
+  overflow: hidden;
+}
+
+.event-item {
+  background-color: var(--event-bg);
+  color: var(--event-text);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border-radius: 2px;
+  padding: 2px 4px;
+  font-size: 11px;
+  overflow: hidden;
+}
+
+.modal-overlay {
+  z-index: 1000;
+  background-color: #00000080;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  inset: 0;
+}
+
+.modal-content {
+  background-color: var(--modal-bg);
+  border-radius: 8px;
+  width: 400px;
+  padding: 24px;
+  box-shadow: 0 4px 12px #00000026;
+}
+
+.modal-content h2 {
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  display: block;
+}
+
+.form-group input[type="text"], .form-group select {
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.recurring-options {
+  background-color: var(--hover-bg);
+  border-radius: 4px;
+  margin-bottom: 16px;
+  padding: 12px;
+}
+
+.modal-actions {
+  justify-content: flex-end;
+  gap: 8px;
+  display: flex;
+}
+
+.modal-actions button {
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.modal-actions button[type="button"] {
+  color: var(--text-color);
+  background-color: #0000;
+}
+
+.modal-actions button[type="submit"] {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+/*# sourceMappingURL=frontend_app_globals_css_bad6b30c._.single.css.map*/

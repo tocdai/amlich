@@ -1,0 +1,35 @@
+[
+  {
+    "title": "Test Event",
+    "startDate": "2025-12-27T00:00:00Z",
+    "id": "1766827500969"
+  },
+  {
+    "id": "1766827650006",
+    "title": "This is a new event",
+    "startDate": "2025-12-19T17:00:00.000Z",
+    "allDay": true,
+    "isRecurring": false
+  },
+  {
+    "id": "1766827706505",
+    "title": "This is another event",
+    "startDate": "2025-12-17T17:00:00.000Z",
+    "allDay": true,
+    "isRecurring": true,
+    "recurringPattern": {
+      "frequency": "monthly",
+      "calendarType": "lunar",
+      "interval": 1
+    },
+    "lunarDetails": {
+      "day": 29,
+      "month": 10,
+      "year": 2025,
+      "leap": false,
+      "yearInGanZhi": "乙巳",
+      "monthInGanZhi": "戊子",
+      "dayInGanZhi": "辛酉"
+    }
+  }
+]
